@@ -45,7 +45,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  */
 static void onUI_init(){
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
-	EASYUICONTEXT->hideStatusBar();
+
 }
 
 /**
@@ -103,11 +103,6 @@ static bool onUI_Timer(int id){
 	}
     return true;
 }
-//static bool onUI_Timer(int id){
-//    //Tips:添加定时器响应的代码到这里,但是需要在本文件的 REGISTER_ACTIVITY_TIMER_TAB 数组中 注册
-//    //id 是定时器设置时候的标签,这里不要写耗时的操作，否则影响UI刷新,ruturn:[true] 继续运行定时器;[false] 停止运行当前定时器
-//    return true;
-//}
 
 /**
  * 有新的触摸事件时触发
@@ -118,22 +113,7 @@ static bool onUI_Timer(int id){
  *         false
  *            触摸事件将继续传递到控件上
  */
-static bool onmainActivityTouchEvent(const MotionEvent &ev) {
+static bool onsystemSettingActivityTouchEvent(const MotionEvent &ev) {
 
 	return false;
 }
-
-const char* IconTab[]={
-		"printJobActivity",
-		"printableActivity",
-		"systemSettingActivity",
-		"printSettingActivity"
-};
-
-static void onSlideItemClick_Slidewindow1(ZKSlideWindow *pSlideWindow, int index) {
-//    LOGD(" onSlideItemClick_ Slidewindow1 %d !!!\n", index);
-	if(index <= sizeof(IconTab)/sizeof(char*)){
-			EASYUICONTEXT->openActivity(IconTab[index]);
-		}
-}
-
