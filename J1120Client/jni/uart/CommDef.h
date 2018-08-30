@@ -36,7 +36,7 @@ typedef unsigned short  UINT16;
 
 
 // 需要打印协议数据时，打开以下宏
-//#define DEBUG_PRO_DATA
+#define DEBUG_PRO_DATA
 
 // 支持checksum校验，打开以下宏
 //#define PRO_SUPPORT_CHECK_SUM
@@ -54,7 +54,7 @@ typedef unsigned short  UINT16;
 #endif
 
 // 同步帧头
-#define CMD_HEAD1	0xFF
+#define CMD_HEAD1	0xAA
 #define CMD_HEAD2	0x55
 
 #endif /* _UART_COMMDEF_H_ */

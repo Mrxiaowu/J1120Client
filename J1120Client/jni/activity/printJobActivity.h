@@ -26,9 +26,6 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
-#define ID_PRINTJOB_Textcenter    50003
-#define ID_PRINTJOB_Textview1    50001
-#define ID_PRINTJOB_Edittext1    51001
 /*TAG:Macro宏ID END*/
 
 class printJobActivity : public Activity, 

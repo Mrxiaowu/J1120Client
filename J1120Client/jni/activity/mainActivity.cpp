@@ -15,7 +15,7 @@ typedef struct {
 	int time; // 定时器  时间间隔  单位 毫秒
 }S_ACTIVITY_TIMEER;
 
-#include "logic/mainLogic.cc"
+#include "../logic/mainLogicTwo.cc"
 
 /***********/
 typedef struct {

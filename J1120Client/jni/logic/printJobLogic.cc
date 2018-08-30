@@ -114,3 +114,8 @@ static void onEditTextChanged_Edittext1(const std::string &text) {
     //LOGD(" onEditTextChanged_ Edittext1 %s !!!\n", text.c_str());
 }
 
+static bool onButtonClick_sys_back(ZKButton *pButton) {
+    //LOGD(" ButtonClick sys_back !!!\n");
+    return false;
+}
+

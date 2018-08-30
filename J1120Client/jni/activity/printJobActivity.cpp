@@ -4,9 +4,6 @@
 #include "printJobActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
-static ZKTextView* mTextcenterPtr;
-static ZKTextView* mTextview1Ptr;
-static ZKEditText* mEdittext1Ptr;
 static printJobActivity* mActivityPtr;
 
 /*register activity*/
@@ -89,7 +86,6 @@ typedef struct {
 }S_EditTextInputCallback;
 /*TAG:EditTextInputCallback*/
 static S_EditTextInputCallback SEditTextInputCallbackTab[] = {
-    ID_PRINTJOB_Edittext1, onEditTextChanged_Edittext1,
 };
 
 typedef void (*VideoViewCallback)(ZKVideoView *pVideoView, int msg);
@@ -125,9 +121,6 @@ const char* printJobActivity::getAppName() const{
 //TAG:onCreate
 void printJobActivity::onCreate() {
 	Activity::onCreate();
-    mTextcenterPtr = (ZKTextView*)findControlByID(ID_PRINTJOB_Textcenter);
-    mTextview1Ptr = (ZKTextView*)findControlByID(ID_PRINTJOB_Textview1);
-    mEdittext1Ptr = (ZKEditText*)findControlByID(ID_PRINTJOB_Edittext1);if(mEdittext1Ptr!= NULL){mEdittext1Ptr->setTextChangeListener(this);}
 	mActivityPtr = this;
 	onUI_init();
         // 注册监听全局触摸
