@@ -1,8 +1,8 @@
 /***********************************************
 /gen auto by zuitools
 ***********************************************/
-#ifndef __MAINACTIVITY_H__
-#define __MAINACTIVITY_H__
+#ifndef __SYSTEMSETTINGACTIVITY_H__
+#define __SYSTEMSETTINGACTIVITY_H__
 
 
 #include "app/Activity.h"
@@ -26,10 +26,9 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
-#define ID_MAIN_Slidewindow1    30001
 /*TAG:Macro宏ID END*/
 
-class mainActivity : public Activity, 
+class systemSettingActivity : public Activity, 
                      public ZKSeekBar::ISeekBarChangeListener, 
                      public ZKListView::IItemClickListener,
                      public ZKListView::AbsListAdapter,
@@ -39,8 +38,8 @@ class mainActivity : public Activity,
                      public ZKVideoView::IVideoPlayerMessageListener
 {
 public:
-    mainActivity();
-    virtual ~mainActivity();
+    systemSettingActivity();
+    virtual ~systemSettingActivity();
 
     /**
      * 注册定时器

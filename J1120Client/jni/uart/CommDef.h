@@ -36,16 +36,22 @@ typedef unsigned short  UINT16;
 
 
 // 需要打印协议数据时，打开以下宏
-//#define DEBUG_PRO_DATA
+#define DEBUG_PRO_DATA
 
 // 支持checksum校验，打开以下宏
-//#define PRO_SUPPORT_CHECK_SUM
+#define PRO_SUPPORT_CHECK_SUM
 
 
 /* SynchFrame CmdID  DataLen Data CheckSum (可选) */
 /*     2Byte  2Byte   1Byte	N Byte  1Byte */
 // 有CheckSum情况下最小长度: 2 + 2 + 1 + 1 = 6
 // 无CheckSum情况下最小长度: 2 + 2 + 1 = 5
+
+/*还可以是这样的 CMDID 为1byte
+  SynchFrame CmdID  DataLen Data CheckSum (可选)
+     2Byte  1Byte   1Byte	N Byte  1Byte
+ 	 有CheckSum情况下最小长度: 2 + 2 + 1 + 1 = 6
+ 	 无CheckSum情况下最小长度: 2 + 2 + 1 = 5 */
 
 #ifdef PRO_SUPPORT_CHECK_SUM
 #define DATA_PACKAGE_MIN_LEN		6
@@ -54,7 +60,7 @@ typedef unsigned short  UINT16;
 #endif
 
 // 同步帧头
-#define CMD_HEAD1	0xFF
+#define CMD_HEAD1	0xAA
 #define CMD_HEAD2	0x55
 
 #endif /* _UART_COMMDEF_H_ */

@@ -113,25 +113,7 @@ static bool onUI_Timer(int id){
  *         false
  *            触摸事件将继续传递到控件上
  */
-static bool onmainActivityTouchEvent(const MotionEvent &ev) {
+static bool onprintablesActivityTouchEvent(const MotionEvent &ev) {
 
 	return false;
 }
-
-const char* IconTab[]={
-
-		"printJobActivity",
-		"printableActivity",
-		"printSettingActivity",
-		"systemSettingActivity"
-};
-
-static void onSlideItemClick_Slidewindow1(ZKSlideWindow *pSlideWindow, int index) {
-	LOGD("正在滑动窗口");
-	if(index <= sizeof(IconTab)/sizeof(char*)){
-		EASYUICONTEXT->openActivity(IconTab[index]);
-	}
-	LOGD(" onSlideItemClick_ Slidewindow1 %d !!!\n", index);
-}
-
-
