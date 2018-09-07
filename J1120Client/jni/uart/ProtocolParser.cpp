@@ -52,6 +52,14 @@ SProtocolData& getProtocolData() {
 
  //获取校验码
 BYTE getCheckSum(const BYTE *pData, int len) {
+
+//#ifdef DEBUG_PRO_DATA
+//	for (int i = 0; i < len; ++i) {
+//		LOGD("%x ", pData[i]);//修改格式，将输出的16进制字符串修改为大写的
+//	}
+//	LOGD("\n");
+//#endif
+
 	int sum = 0;
 	for (int i = 0; i < len; ++i) {
 		sum += pData[i];
