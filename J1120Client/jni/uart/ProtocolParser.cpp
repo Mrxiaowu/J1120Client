@@ -49,9 +49,8 @@ SProtocolData& getProtocolData() {
 	return sProtocolData;
 }
 
-/**
- * 获取校验码
- */
+
+ //获取校验码
 BYTE getCheckSum(const BYTE *pData, int len) {
 	int sum = 0;
 	for (int i = 0; i < len; ++i) {

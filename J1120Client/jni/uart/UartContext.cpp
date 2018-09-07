@@ -87,9 +87,7 @@ bool UartContext::send(const BYTE *pData, UINT len) {
 		return false;
 	}
 
-	// success
-//	LOGD("send Success\n");
-
+	LOGD("send Success\n");
 	return true;
 }
 

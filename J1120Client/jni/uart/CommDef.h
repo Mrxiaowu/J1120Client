@@ -1,9 +1,4 @@
-/*
- * CommDef.h
- *
- *  Created on: 2016-2-15
- *      Author: guoxs
- */
+
 
 #ifndef _UART_COMMDEF_H_
 #define _UART_COMMDEF_H_
@@ -11,9 +6,11 @@
 #ifndef BYTE
 typedef unsigned char	BYTE;
 #endif
+
 #ifndef UINT
 typedef unsigned int	UINT;
 #endif
+
 #ifndef UINT16
 typedef unsigned short  UINT16;
 #endif
@@ -41,22 +38,22 @@ typedef unsigned short  UINT16;
 // 支持checksum校验，打开以下宏
 #define PRO_SUPPORT_CHECK_SUM
 
-
+//样板示例
 /* SynchFrame CmdID  DataLen Data CheckSum (可选) */
 /*     2Byte  2Byte   1Byte	N Byte  1Byte */
 // 有CheckSum情况下最小长度: 2 + 2 + 1 + 1 = 6
 // 无CheckSum情况下最小长度: 2 + 2 + 1 = 5
 
-/*还可以是这样的 CMDID 为1byte
-  SynchFrame CmdID  DataLen Data CheckSum (可选)
+/*数据格式定义为这样  AA 55 +长度+CMD+PageID+FF FF FF +Check Summer
+  SynchFrame DataLen CmdID Data CheckSum (可选)
      2Byte  1Byte   1Byte	N Byte  1Byte
- 	 有CheckSum情况下最小长度: 2 + 2 + 1 + 1 = 6
- 	 无CheckSum情况下最小长度: 2 + 2 + 1 = 5 */
+ 	 有CheckSum情况下最小长度: 2 + 1 + 1 + 1 = 5
+ 	 无CheckSum情况下最小长度: 2 + 1 + 1 = 4 */
 
 #ifdef PRO_SUPPORT_CHECK_SUM
-#define DATA_PACKAGE_MIN_LEN		6
-#else
 #define DATA_PACKAGE_MIN_LEN		5
+#else
+#define DATA_PACKAGE_MIN_LEN		4
 #endif
 
 // 同步帧头

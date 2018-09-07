@@ -1,4 +1,6 @@
 #pragma once
+
+#include "../uart/ProtocolSender.h"
 /*
 *此文件由GUI工具生成
 *文件功能：用于处理用户的逻辑相应代码
@@ -104,22 +106,21 @@ static bool onUI_Timer(int id){
     return true;
 }
 
-/**
- * 有新的触摸事件时触发
- * 参数：ev
- *         新的触摸事件
- * 返回值：true
- *            表示该触摸事件在此被拦截，系统不再将此触摸事件传递到控件上
- *         false
- *            触摸事件将继续传递到控件上
- */
+
 static bool onprintSettingActivityTouchEvent(const MotionEvent &ev) {
 
 	return false;
 }
+
 static bool onButtonClick_up1(ZKButton *pButton) {
-    LOGD(" ButtonClick up1 !!!\n");
-    return false;
+    LOGD(" ButtonClick up1 !!!\n"); //AA550503FF010B01F1
+
+    BYTE mode[] = { 0x01, 0x02, 0x03, 0x04 };
+    sendProtocol(0x01, mode, 4);
+
+//    BYTE mode[] = { 0x01, 0x02, 0x03, 0x04 };
+//    sendProtocol( mode , 5);
+    return true;
 }
 
 static bool onButtonClick_sys_back(ZKButton *pButton) {

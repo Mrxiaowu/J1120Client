@@ -1,9 +1,4 @@
-/*
- * ProtocolData.h
- *
- *  Created on: Sep 7, 2017
- *      Author: guoxs
- */
+
 
 #ifndef _UART_PROTOCOL_DATA_H_
 #define _UART_PROTOCOL_DATA_H_
