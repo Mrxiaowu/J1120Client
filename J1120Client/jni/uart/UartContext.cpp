@@ -1,9 +1,4 @@
-/*
- * UartContext.cpp
- *
- *  Created on: Sep 5, 2017
- *      Author: guoxs
- */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -109,27 +104,22 @@ bool UartContext::readyToRun() {
 }
 
 bool UartContext::threadLoop() {
-	if (mIsOpen) {
-		// 可能上一次解析后有残留数据，需要拼接起来
+	if (mIsOpen) {   // 可能上一次解析后有残留数据，需要拼接起来
+
 		int readNum = read(mUartID, mDataBufPtr + mDataBufLen, UART_DATA_BUF_LEN - mDataBufLen);
 
 		if (readNum > 0) {
 			mDataBufLen += readNum;
 
-			// 解析协议
 			int len = parseProtocol(mDataBufPtr, mDataBufLen);
 			if ((len > 0) && (len < mDataBufLen)) {
-				// 将未解析的数据移到头部
-				memcpy(mDataBufPtr, mDataBufPtr + len, mDataBufLen - len);
+				memcpy(mDataBufPtr, mDataBufPtr + len, mDataBufLen - len); // 将未解析的数据移到头部
 			}
-
 			mDataBufLen -= len;
 		} else {
 			Thread::sleep(50);
 		}
-
 		return true;
 	}
-
 	return false;
 }

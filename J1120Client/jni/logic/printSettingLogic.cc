@@ -115,9 +115,6 @@ static bool onprintSettingActivityTouchEvent(const MotionEvent &ev) {
 static bool onButtonClick_up1(ZKButton *pButton) {
     LOGD(" ButtonClick up1 !!!\n"); //AA550503FF010B01F1
 
-//    BYTE mode[] = { 0x01, 0x02, 0x03, 0x04 };
-//    sendProtocol(0x01, mode, 4);
-
     BYTE mode[] = { 0x03, 0xFF, 0x01, 0x0B,0x01 };
     sendProtocol( mode , 5);
     return true;

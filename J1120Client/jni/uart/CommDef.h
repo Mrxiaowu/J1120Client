@@ -44,16 +44,17 @@ typedef unsigned short  UINT16;
 // 有CheckSum情况下最小长度: 2 + 2 + 1 + 1 = 6
 // 无CheckSum情况下最小长度: 2 + 2 + 1 = 5
 
-/*数据格式定义为这样  AA 55 +长度+CMD+PageID+FF FF FF +Check Summer
-  SynchFrame DataLen CmdID Data CheckSum (可选)
-     2Byte  1Byte   1Byte	N Byte  1Byte
- 	 有CheckSum情况下最小长度: 2 + 1 + 1 + 1 = 5
- 	 无CheckSum情况下最小长度: 2 + 1 + 1 = 4 */
+
+//Header	DataLength	 Data	 CheckSummer
+//2 Byte	 1 Byte	    N Byte	   1 Byte
+//0xAA0x55	   N
+//有CheckSum情况下最小长度: 2 + 1 + 1 + 1 = 5
+// 	 无CheckSum情况下最小长度: 2 + 1 + 1 = 4
 
 #ifdef PRO_SUPPORT_CHECK_SUM
-#define DATA_PACKAGE_MIN_LEN		5
-#else
 #define DATA_PACKAGE_MIN_LEN		4
+#else
+#define DATA_PACKAGE_MIN_LEN		3
 #endif
 
 // 同步帧头
