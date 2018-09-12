@@ -4,8 +4,16 @@
 #include "printSettingActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
-static ZKButton* msys_backPtr;
+static ZKButton* mhomePtr;
+static ZKButton* mdown5000Ptr;
+static ZKButton* mdown1000Ptr;
+static ZKButton* mdown100Ptr;
+static ZKButton* mup1000Ptr;
 static ZKButton* mup1Ptr;
+static ZKButton* mup5000Ptr;
+static ZKButton* mdown5Ptr;
+static ZKButton* msys_backPtr;
+static ZKButton* mup5Ptr;
 static printSettingActivity* mActivityPtr;
 
 /*register activity*/
@@ -33,18 +41,28 @@ static SAppInfo sAppInfoTab[] = {
 
 /***************/
 typedef bool (*ButtonCallback)(ZKButton *pButton);
-
-
+/**
+ * button onclick表
+ */
 typedef struct {
     int id;
     ButtonCallback callback;
 }S_ButtonCallback;
 
-
+/*TAG:ButtonCallbackTab按键映射表*/
 static S_ButtonCallback sButtonCallbackTab[] = {
-    ID_PRINTSETTING_sys_back, onButtonClick_sys_back,
+    ID_PRINTSETTING_home, onButtonClick_home,
+    ID_PRINTSETTING_down5000, onButtonClick_down5000,
+    ID_PRINTSETTING_down1000, onButtonClick_down1000,
+    ID_PRINTSETTING_down100, onButtonClick_down100,
+    ID_PRINTSETTING_up1000, onButtonClick_up1000,
     ID_PRINTSETTING_up1, onButtonClick_up1,
+    ID_PRINTSETTING_up5000, onButtonClick_up5000,
+    ID_PRINTSETTING_down5, onButtonClick_down5,
+    ID_PRINTSETTING_sys_back, onButtonClick_sys_back,
+    ID_PRINTSETTING_up5, onButtonClick_up5,
 };
+/***************/
 
 
 typedef void (*SeekBarCallback)(ZKSeekBar *pSeekBar, int progress);
@@ -123,8 +141,16 @@ const char* printSettingActivity::getAppName() const{
 //TAG:onCreate
 void printSettingActivity::onCreate() {
 	Activity::onCreate();
-    msys_backPtr = (ZKButton*)findControlByID(ID_PRINTSETTING_sys_back);
+    mhomePtr = (ZKButton*)findControlByID(ID_PRINTSETTING_home);
+    mdown5000Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_down5000);
+    mdown1000Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_down1000);
+    mdown100Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_down100);
+    mup1000Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_up1000);
     mup1Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_up1);
+    mup5000Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_up5000);
+    mdown5Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_down5);
+    msys_backPtr = (ZKButton*)findControlByID(ID_PRINTSETTING_sys_back);
+    mup5Ptr = (ZKButton*)findControlByID(ID_PRINTSETTING_up5);
 	mActivityPtr = this;
 	onUI_init();
     registerProtocolDataUpdateListener(onProtocolDataUpdate); 

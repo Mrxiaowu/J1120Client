@@ -26,8 +26,16 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
+#define ID_PRINTSETTING_home    20009
+#define ID_PRINTSETTING_down5000    20008
+#define ID_PRINTSETTING_down1000    20007
+#define ID_PRINTSETTING_down100    20005
+#define ID_PRINTSETTING_up1000    20006
+#define ID_PRINTSETTING_up1    20004
+#define ID_PRINTSETTING_up5000    20003
+#define ID_PRINTSETTING_down5    20002
 #define ID_PRINTSETTING_sys_back   100
-#define ID_PRINTSETTING_up1    20001
+#define ID_PRINTSETTING_up5    20001
 /*TAG:Macro宏ID END*/
 
 class printSettingActivity : public Activity, 

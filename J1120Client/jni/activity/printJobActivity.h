@@ -24,6 +24,7 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
+#define ID_PRINTJOB_sys_back   100
 /*TAG:Macro宏ID END*/
 
 class printJobActivity : public Activity, 
