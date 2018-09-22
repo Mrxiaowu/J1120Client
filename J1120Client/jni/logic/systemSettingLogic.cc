@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../uart/ProtocolSender.h"
+
 /**
  * 注册定时器
  * 填充数组用于注册定时器

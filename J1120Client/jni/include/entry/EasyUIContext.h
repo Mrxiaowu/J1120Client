@@ -1,9 +1,4 @@
-/*
- * EasyUIContext.h
- *
- *  Created on: Aug 24, 2017
- *      Author: guoxs
- */
+
 
 #ifndef _ENTRY_EASYUI_CONTEXT_H_
 #define _ENTRY_EASYUI_CONTEXT_H_

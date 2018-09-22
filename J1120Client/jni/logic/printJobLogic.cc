@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../uart/ProtocolSender.h"
+
 
 /**
  * 注册定时器
@@ -24,7 +26,9 @@ static void onUI_init(){
  */
 static void onUI_intent(const Intent *intentPtr) {
     if (intentPtr != NULL) {
-        //TODO
+    	LOGD("打印页面");
+		BYTE mode[] = { 0x00, 0xFF, 0x01, 0x00,0x01 };
+		sendProtocol( mode , 5);
     }
 }
 
@@ -91,7 +95,6 @@ static bool onprintJobActivityTouchEvent(const MotionEvent &ev) {
 static bool onButtonClick_sys_back(ZKButton *pButton) {
 	EASYUICONTEXT->openActivity("mainActivity");
 		LOGD(" ButtonClick sys_back !!!\n");
-	//	    return true;
 	    return false;
 }
 

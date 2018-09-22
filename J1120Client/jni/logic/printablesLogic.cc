@@ -1,11 +1,8 @@
 #pragma once
 
+#include "../uart/ProtocolSender.h"
 
-/**
- * 注册定时器
- * 填充数组用于注册定时器
- * 注意：id不能重复
- */
+
 static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
 	//{0,  6000}, //定时器id=0, 时间间隔6秒
 	//{1,  1000},
@@ -23,36 +20,35 @@ static void onUI_init(){
  * 当切换到该界面时触发
  */
 static void onUI_intent(const Intent *intentPtr) {
+	LOGD("文件管理页面_onUI_intent");
     if (intentPtr != NULL) {
-        //TODO
+    	LOGD("文件管理页面_onUI_intent_2");
+		BYTE mode[] = { 0x00, 0xFF, 0x01, 0x02,0x01 };
+		sendProtocol( mode , 5);
     }
 }
 
-/*
- * 当界面显示时触发
- */
-static void onUI_show() {
+
+static void onUI_show() { //当界面显示时触发
+	LOGD("文件管理页面_onUI_show");
 
 }
 
-/*
- * 当界面隐藏时触发
- */
-static void onUI_hide() {
+
+static void onUI_hide() { //当界面隐藏时触发
+	LOGD("文件管理页面_onUI_hide");
 
 }
 
-/*
- * 当界面完全退出时触发
- */
-static void onUI_quit() {
+
+static void onUI_quit() { //当界面完全退出时触发
+	LOGD("文件管理页面_onUI_quit");
 
 }
 
-/**
- * 串口数据回调接口
- */
-static void onProtocolDataUpdate(const SProtocolData &data) {
+
+static void onProtocolDataUpdate(const SProtocolData &data) { //串口数据回调接口
+	LOGD("文件管理页面_onProtocolDataUpdate");
 
 }
 
@@ -88,10 +84,39 @@ static bool onprintablesActivityTouchEvent(const MotionEvent &ev) {
 
 	return false;
 }
+
+//返回按钮
 static bool onButtonClick_sys_back(ZKButton *pButton) {
 	EASYUICONTEXT->openActivity("mainActivity");
 	LOGD(" ButtonClick sys_back !!!\n");
-//	    return true;
 	return false;
+}
+
+static int getListItemCount_Listview1(const ZKListView *pListView) {
+    //LOGD("getListItemCount_Listview1 !\n");
+    return 6;
+}
+
+static void obtainListItemData_Listview1(ZKListView *pListView,ZKListView::ZKListItem *pListItem, int index) {
+    //LOGD(" obtainListItemData_ Listview1  !!!\n");
+}
+
+static void onListItemClick_Listview1(ZKListView *pListView, int index, int id) {
+    //LOGD(" onListItemClick_ Listview1  !!!\n");
+}
+
+static bool onButtonClick_print(ZKButton *pButton) {
+    //LOGD(" ButtonClick print !!!\n");
+    return false;
+}
+
+static bool onButtonClick_USB(ZKButton *pButton) {
+    //LOGD(" ButtonClick USB !!!\n");
+    return false;
+}
+
+static bool onButtonClick_delete(ZKButton *pButton) {
+    //LOGD(" ButtonClick delete !!!\n");
+    return false;
 }
 
